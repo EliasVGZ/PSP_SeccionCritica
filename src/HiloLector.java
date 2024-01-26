@@ -20,7 +20,8 @@ class HiloLector extends Thread {
             String linea;
             int contadorLineas = 0;
 
-            while ((linea = br.readLine()) != null) {// Este bucle lee cada línea del archivo secuencialmente hasta que alcanza el final del archivo. Cada línea se almacena en la variable linea.
+            while ((linea = br.readLine()) != null) {// Este bucle lee cada línea del archivo secuencialmente hasta que alcanza el final del archivo.
+                // Cada línea se almacena en la variable linea.
                 // Lógica para procesar cada cadena y agregarla a la lista compartida
                 contadorLineas++;
                 System.out.println("Hilo " + Thread.currentThread().getName() + " para archivo " + nombreArchivo + " - Procesando línea " + contadorLineas);
@@ -36,6 +37,7 @@ class HiloLector extends Thread {
                 synchronized (listaCompartida) {
                     listaCompartida.add(persona);
                 }
+
             }
         } catch (IOException e) {
             e.printStackTrace();
