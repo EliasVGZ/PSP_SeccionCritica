@@ -71,9 +71,9 @@ public class Principal {
         while (iterator.hasNext()) {
             Thread hilo = iterator.next();
             if (hilo.isAlive()) {
-                return true; // Si hay al menos un hilo vivo, retorna true
+                return true;
             }
         }
-        return false; // Si no hay hilos vivos, retorna false
+        return false;
     }
 }

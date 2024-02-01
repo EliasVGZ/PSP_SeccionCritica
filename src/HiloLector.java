@@ -22,7 +22,7 @@ class HiloLector extends Thread {
 
             while ((linea = br.readLine()) != null) {// Este bucle lee cada línea del archivo secuencialmente hasta que alcanza el final del archivo.
                 // Cada línea se almacena en la variable linea.
-                // Lógica para procesar cada cadena y agregarla a la lista compartida
+
                 contadorLineas++;
                 System.out.println("Hilo " + Thread.currentThread().getName() + " para archivo " + nombreArchivo + " - Procesando línea " + contadorLineas);
 
@@ -33,7 +33,7 @@ class HiloLector extends Thread {
                 Persona persona = new Persona(longitud, iniciales, linea);
 
                 /*La lista compartida listaCompartida está siendo modificada en varios hilos simultáneamente.
-                El bloque sincronizado asegura que solo un hilo a la vez pueda agregar una persona a la lista, evitando posibles problemas de concurrencia.*/
+                El bloque sincronizado asegura que solo un hilo a la vez pueda agregar una persona a la lista*/
                 synchronized (listaCompartida) {
                     listaCompartida.add(persona);
                 }
@@ -48,7 +48,7 @@ class HiloLector extends Thread {
 
 
     private String obtenerIniciales(String cadena) {
-        // Lógica para obtener las iniciales de la cadena
+
         String[] palabras = cadena.split(" ");
         StringBuilder iniciales = new StringBuilder();
         for (String palabra : palabras) {
